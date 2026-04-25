@@ -1,7 +1,7 @@
 :root {
   color-scheme: dark;
-  --bg0: #0b1219;
-  --bg1: #6e8fa2;
+  --bg0: #0f2431;
+  --bg1: #0f2431;
   --fg0: rgba(255, 255, 255, 0.92);
   --fg1: rgba(255, 255, 255, 0.72);
   --fg2: rgba(255, 255, 255, 0.52);
@@ -19,23 +19,14 @@
 html,
 body {
   height: 100%;
+  background-color: var(--bg0);
 }
 
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: radial-gradient(
-      1200px 800px at 12% 10%,
-      rgba(202, 184, 155, 0.16),
-      transparent 55%
-    ),
-    radial-gradient(
-      1000px 700px at 88% 18%,
-      rgba(110, 143, 162, 0.22),
-      transparent 50%
-    ),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+  background-color: var(--bg0);
   color: var(--fg0);
 }
 
@@ -101,6 +92,65 @@ code {
   background: rgba(255, 255, 255, 0.04);
 }
 
+.navDropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navDropdown::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  top: 100%;
+  height: 14px;
+}
+
+.navMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: rgba(11, 18, 25, 0.92);
+  box-shadow: 0 18px 60px var(--shadow);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+  transform: translateY(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease, visibility 0s linear 160ms;
+}
+
+.navDropdown:hover .navMenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(10px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 0s;
+}
+
+.navMenu a {
+  display: block;
+  padding: 10px 10px;
+  border-radius: 12px;
+  color: var(--fg1);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.navMenu a:hover {
+  color: var(--fg0);
+  border-color: var(--stroke);
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .main {
   width: min(1040px, calc(100% - 40px));
   margin: 0 auto;
@@ -117,6 +167,48 @@ code {
   border-radius: calc(var(--radius) + 6px);
   padding: 34px;
   box-shadow: 0 18px 60px var(--shadow);
+}
+
+.homeHero {
+  padding: 22px;
+}
+
+.homeHeroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.homeHeroCopy {
+  padding: 12px;
+}
+
+.homeHeroMedia {
+  border-radius: calc(var(--radius) + 6px);
+  border: 1px solid var(--stroke);
+  min-height: 320px;
+  background:
+    radial-gradient(900px 500px at 20% 18%, rgba(202, 184, 155, 0.22), transparent 55%),
+    radial-gradient(900px 520px at 88% 30%, rgba(110, 143, 162, 0.22), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 18px 60px var(--shadow);
+}
+
+@media (min-width: 900px) {
+  .homeHero {
+    padding: 26px;
+  }
+
+  .homeHeroGrid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .homeHeroMedia {
+    min-height: 420px;
+  }
 }
 
 .kicker {
@@ -206,12 +298,43 @@ code {
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
   padding: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background:
+    radial-gradient(900px 420px at 18% 18%, rgba(202, 184, 155, 0.22), transparent 60%),
+    radial-gradient(800px 420px at 86% 78%, rgba(110, 143, 162, 0.14), transparent 62%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      rgba(0, 0, 0, 0) 7px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+}
+
+.cardLink {
+  display: block;
+}
+
+.cardLink:hover {
+  background:
+    radial-gradient(900px 420px at 18% 18%, rgba(202, 184, 155, 0.28), transparent 60%),
+    radial-gradient(800px 420px at 86% 78%, rgba(110, 143, 162, 0.18), transparent 62%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.035) 0px,
+      rgba(255, 255, 255, 0.035) 1px,
+      rgba(0, 0, 0, 0) 7px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
 }
 
 .card h3 {
   margin: 0 0 6px;
   font-size: 1rem;
+}
+
+.cardLink h3 {
+  margin: 0;
+  text-align: center;
 }
 
 .card p {
@@ -226,11 +349,84 @@ code {
   }
 }
 
-.footer {
-  margin-top: auto;
-  border-top: 1px solid var(--stroke);
-  background: rgba(11, 18, 25, 0.65);
-  color: var(--fg2);
-  padding: 18px 22px;
+.collectionGrid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+}
+
+.collectionCard {
+  grid-column: span 12;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 16px;
+  background:
+    radial-gradient(900px 420px at 18% 18%, rgba(202, 184, 155, 0.22), transparent 60%),
+    radial-gradient(800px 420px at 86% 78%, rgba(110, 143, 162, 0.14), transparent 62%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      rgba(0, 0, 0, 0) 7px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  display: grid;
+  gap: 12px;
+}
+
+.collectionCard:hover {
+  background:
+    radial-gradient(900px 420px at 18% 18%, rgba(202, 184, 155, 0.28), transparent 60%),
+    radial-gradient(800px 420px at 86% 78%, rgba(110, 143, 162, 0.18), transparent 62%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.035) 0px,
+      rgba(255, 255, 255, 0.035) 1px,
+      rgba(0, 0, 0, 0) 7px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+}
+
+.collectionCard h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--fg0);
+}
+
+.collectionImage {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  overflow: hidden;
+}
+
+.collectionImage--primal {
+  background:
+    radial-gradient(900px 500px at 20% 20%, rgba(202, 184, 155, 0.28), transparent 60%),
+    radial-gradient(900px 520px at 90% 35%, rgba(110, 143, 162, 0.22), transparent 65%),
+    linear-gradient(180deg, rgba(11, 18, 25, 0.35), rgba(11, 18, 25, 0.12));
+}
+
+.collectionImage--divine {
+  background:
+    radial-gradient(900px 520px at 70% 18%, rgba(202, 184, 155, 0.22), transparent 62%),
+    radial-gradient(900px 520px at 18% 78%, rgba(110, 143, 162, 0.26), transparent 60%),
+    linear-gradient(180deg, rgba(11, 18, 25, 0.35), rgba(11, 18, 25, 0.12));
+}
+
+.collectionImage--diverse {
+  background:
+    radial-gradient(900px 520px at 25% 35%, rgba(202, 184, 155, 0.22), transparent 62%),
+    radial-gradient(900px 520px at 78% 70%, rgba(110, 143, 162, 0.26), transparent 60%),
+    linear-gradient(180deg, rgba(11, 18, 25, 0.35), rgba(11, 18, 25, 0.12));
+}
+
+@media (min-width: 760px) {
+  .collectionCard {
+    grid-column: span 4;
+  }
 }
 

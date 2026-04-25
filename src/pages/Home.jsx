@@ -1,51 +1,48 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <p className="kicker">A starting point</p>
-        <h1 className="title">A simple React website shell.</h1>
-        <p className="subtitle">
-          Edit <code>src/pages/Home.jsx</code> to build your pages.
-        </p>
-        <div className="ctaRow">
-          <a className="primary" href="#work">
-            See sections
-          </a>
-          <a className="secondary" href="#about">
-            Learn more
-          </a>
-        </div>
-      </section>
+      <section className="hero homeHero">
+        <div className="homeHeroGrid">
+          <div className="homeHeroCopy">
+            <p className="kicker">The Female Gaze of Paphos</p>
+            <h1 className="title">Explore the collection.</h1>
+            <p className="subtitle">
+              A calm, museum-style entry point—one strong image and a clear path into
+              the work.
+            </p>
+            <div className="ctaRow">
+              <Link className="primary" to="/collection">
+                View collections
+              </Link>
+              <a className="secondary" href="#work">
+                Highlights
+              </a>
+            </div>
+          </div>
 
-      <section id="about" className="section">
-        <h2>About</h2>
-        <p>
-          This is a minimal, clean layout you can expand into a full site: routing,
-          content, images, CMS—whatever you want next.
-        </p>
+          <div
+            className="homeHeroMedia"
+            role="img"
+            aria-label="Featured artwork"
+          />
+        </div>
       </section>
 
       <section id="work" className="section">
-        <h2>Work</h2>
+        <h2>Explore collections</h2>
         <div className="cards">
-          <article className="card">
-            <h3>Project One</h3>
-            <p>Describe a piece of work here.</p>
-          </article>
-          <article className="card">
-            <h3>Project Two</h3>
-            <p>Add an image, a link, or details.</p>
-          </article>
-          <article className="card">
-            <h3>Project Three</h3>
-            <p>Keep it lightweight and iterate.</p>
-          </article>
+          <Link className="card cardLink" to="/collection/the-primal-origin">
+            <h3>The Primal Origin</h3>
+          </Link>
+          <Link className="card cardLink" to="/collection/the-divine-transition">
+            <h3>The Divine Transition</h3>
+          </Link>
+          <Link className="card cardLink" to="/collection/the-diverse-identities">
+            <h3>The Diverse Identities</h3>
+          </Link>
         </div>
-      </section>
-
-      <section id="contact" className="section">
-        <h2>Contact</h2>
-        <p>Add your email, socials, or a form. For now, this is just a placeholder.</p>
       </section>
     </>
   );

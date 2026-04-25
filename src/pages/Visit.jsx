@@ -4,9 +4,10 @@ export default function Visit() {
 
   return (
     <section className="section" style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
-      <h2 style={{ color: '#334960', marginBottom: '10px' }}>Visit the Museum</h2>
+      <h2 style={{ color: '#cab89b', marginBottom: '10px' }}>Visit the Museum</h2>
       <p style={{ marginBottom: '20px' }}>
-        Explore the physical collection that inspired <strong>The Female Gaze of Paphos</strong>.
+        Explore the physical collection that inspired{" "}
+        <strong style={{ textDecoration: "underline" }}>The Female Gaze of Paphos</strong>.
       </p>
 
       {/* The Map Container */}
@@ -16,7 +17,7 @@ export default function Visit() {
         borderRadius: '12px', 
         overflow: 'hidden', 
         boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-        border: '1px solid #334960' 
+        border: '1px solid rgba(202, 184, 155, 0.45)'
       }}>
         <iframe
           title="Paphos Museum Map"
@@ -34,11 +35,11 @@ export default function Visit() {
       {/* Location Details */}
       <div style={{ marginTop: '25px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
         <div>
-          <h4 style={{ color: '#334960', margin: '0 0 5px 0' }}>Location</h4>
+          <h4 style={{ color: '#cab89b', margin: '0 0 5px 0' }}>Location</h4>
           <p>Griva Digeni 43, Paphos, Cyprus</p>
         </div>
         <div>
-          <h4 style={{ color: '#334960', margin: '0 0 5px 0' }}>Opening Hours</h4>
+          <h4 style={{ color: '#cab89b', margin: '0 0 5px 0' }}>Opening Hours</h4>
           <p>Monday – Friday: 08:30 – 16:00</p>
         </div>
       </div>
