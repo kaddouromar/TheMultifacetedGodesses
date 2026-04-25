@@ -1,0 +1,236 @@
+:root {
+  color-scheme: dark;
+  --bg0: #0b1219;
+  --bg1: #6e8fa2;
+  --fg0: rgba(255, 255, 255, 0.92);
+  --fg1: rgba(255, 255, 255, 0.72);
+  --fg2: rgba(255, 255, 255, 0.52);
+  --stroke: rgba(255, 255, 255, 0.12);
+  --shadow: rgba(0, 0, 0, 0.35);
+  --accent: #cab89b;
+  --accent2: #6e8fa2;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(
+      1200px 800px at 12% 10%,
+      rgba(202, 184, 155, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      1000px 700px at 88% 18%,
+      rgba(110, 143, 162, 0.22),
+      transparent 50%
+    ),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  color: var(--fg0);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  filter: brightness(1.08);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.95em;
+  padding: 0.12em 0.35em;
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 18, 25, 0.65);
+  border-bottom: 1px solid var(--stroke);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  gap: 16px;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 650;
+  letter-spacing: 0.2px;
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+}
+
+.nav a {
+  color: var(--fg1);
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.nav a:hover {
+  color: var(--fg0);
+  border-color: var(--stroke);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.main {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 34px 0 48px;
+}
+
+.hero {
+  border: 1px solid var(--stroke);
+  background: linear-gradient(
+    135deg,
+    rgba(202, 184, 155, 0.14),
+    rgba(110, 143, 162, 0.18)
+  );
+  border-radius: calc(var(--radius) + 6px);
+  padding: 34px;
+  box-shadow: 0 18px 60px var(--shadow);
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: var(--fg2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--fg1);
+  max-width: 62ch;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.primary,
+.secondary {
+  border-radius: 999px;
+  padding: 10px 14px;
+  border: 1px solid var(--stroke);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.primary {
+  background: rgba(202, 184, 155, 0.14);
+}
+
+.primary:hover {
+  background: rgba(202, 184, 155, 0.2);
+}
+
+.secondary {
+  color: var(--fg1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.secondary:hover {
+  color: var(--fg0);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.section {
+  margin-top: 26px;
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.section h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.section p {
+  margin: 0;
+  color: var(--fg1);
+  line-height: 1.55;
+}
+
+.cards {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+}
+
+.card {
+  grid-column: span 12;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--fg1);
+  line-height: 1.5;
+}
+
+@media (min-width: 760px) {
+  .card {
+    grid-column: span 4;
+  }
+}
+
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--stroke);
+  background: rgba(11, 18, 25, 0.65);
+  color: var(--fg2);
+  padding: 18px 22px;
+}
+
