@@ -17,7 +17,7 @@ export default function App() {
         <nav className="nav">
           <Link to="/visit">Visit</Link>
           <div className="navDropdown">
-            <Link to="/collection" className="navTrigger">
+            <Link>
               Collection
             </Link>
             <div className="navMenu" role="menu" aria-label="Collection">
@@ -32,7 +32,7 @@ export default function App() {
               </Link>
             </div>
           </div>
-          <Link to="/about-us">About us</Link>
+          
         </nav>
       </header>
 

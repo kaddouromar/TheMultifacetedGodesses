@@ -41,7 +41,7 @@ export default function Home() {
         <h2>Explore collections</h2>
         <div className="cards">
           <Link className="card cardLink" to="/collection/the-primal-origin">
-            <h3>Lady of Lampa</h3>
+            <h3>Lady of Lempa</h3>
           </Link>
           <Link className="card cardLink" to="/collection/the-divine-transition">
             <h3>Aphrodite</h3>

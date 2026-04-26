@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 export default function AboutUs() {
+
+  <h1>The Team</h1>
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",

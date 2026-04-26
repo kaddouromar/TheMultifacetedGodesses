@@ -8,14 +8,20 @@ export default function Collection() {
 
       <div className="collectionGrid">
         <Link className="collectionCard" to="/collection/the-primal-origin">
-          <h3>The Primal Origin</h3>
+          <h3>Lady of Lempa</h3>
           <div className="collectionImage collectionImage--primal" />
         </Link>
 
         <Link className="collectionCard" to="/collection/the-divine-transition">
-          <h3>The Divine Transition</h3>
+          <h3>Aphrodite</h3>
           <div className="collectionImage collectionImage--divine" />
         </Link>
+
+        <Link className="collectionCard" to="/collection/artemis">
+          <h3>Artemis</h3>
+          <div className="collectionImage collectionImage--artemis" />
+        </Link>
+
       </div>
     </section>
   );
