@@ -5,14 +5,14 @@ import Collection from "./pages/Collection.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import ThePrimalOrigin from "./pages/collections/ThePrimalOrigin.jsx";
 import TheDivineTransition from "./pages/collections/TheDivineTransition.jsx";
-import TheDiverseIdentities from "./pages/collections/TheDiverseIdentities.jsx";
+import Artemis from "./pages/collections/Artemis.jsx";
 
 export default function App() {
   return (
     <div className="page">
       <header className="topbar">
         <Link className="brand" to="/">
-          The Female Gaze of Paphos
+          The Multifaceted Goddesses
         </Link>
         <nav className="nav">
           <Link to="/visit">Visit</Link>
@@ -22,13 +22,13 @@ export default function App() {
             </Link>
             <div className="navMenu" role="menu" aria-label="Collection">
               <Link to="/collection/the-primal-origin" role="menuitem">
-                The Primal Origin
+                Lady of Lempa
               </Link>
               <Link to="/collection/the-divine-transition" role="menuitem">
-                The Divine Transition
+                Aphrodite
               </Link>
-              <Link to="/collection/the-diverse-identities" role="menuitem">
-                The Diverse Identities
+              <Link to="/collection/artemis" role="menuitem">
+                Artemis
               </Link>
             </div>
           </div>
@@ -46,10 +46,7 @@ export default function App() {
             path="/collection/the-divine-transition"
             element={<TheDivineTransition />}
           />
-          <Route
-            path="/collection/the-diverse-identities"
-            element={<TheDiverseIdentities />}
-          />
+          <Route path="/collection/artemis" element={<Artemis />} />
           <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </main>

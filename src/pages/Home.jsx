@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import museum from "./assests/Museum.jpg";
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       <section className="hero homeHero">
         <div className="homeHeroGrid">
           <div className="homeHeroCopy">
-            <p className="kicker">The Female Gaze of Paphos</p>
+            <p className="kicker">The Multifaceted Goddesses</p>
             <h1 className="title">Explore the collection.</h1>
             <p className="subtitle">
               A calm, museum-style entry point—one strong image and a clear path into
@@ -26,6 +27,12 @@ export default function Home() {
             className="homeHeroMedia"
             role="img"
             aria-label="Featured artwork"
+            style={{
+              backgroundImage: `url(${museum})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat"
+            }}
           />
         </div>
       </section>
@@ -34,13 +41,13 @@ export default function Home() {
         <h2>Explore collections</h2>
         <div className="cards">
           <Link className="card cardLink" to="/collection/the-primal-origin">
-            <h3>The Primal Origin</h3>
+            <h3>Lady of Lampa</h3>
           </Link>
           <Link className="card cardLink" to="/collection/the-divine-transition">
-            <h3>The Divine Transition</h3>
+            <h3>Aphrodite</h3>
           </Link>
-          <Link className="card cardLink" to="/collection/the-diverse-identities">
-            <h3>The Diverse Identities</h3>
+          <Link className="card cardLink" to="/collection/artemis">
+            <h3>Artemis</h3>
           </Link>
         </div>
       </section>

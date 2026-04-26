@@ -16,11 +16,6 @@ export default function Collection() {
           <h3>The Divine Transition</h3>
           <div className="collectionImage collectionImage--divine" />
         </Link>
-
-        <Link className="collectionCard" to="/collection/the-diverse-identities">
-          <h3>The Diverse Identities</h3>
-          <div className="collectionImage collectionImage--diverse" />
-        </Link>
       </div>
     </section>
   );

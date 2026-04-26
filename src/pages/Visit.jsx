@@ -7,7 +7,7 @@ export default function Visit() {
       <h2 style={{ color: '#cab89b', marginBottom: '10px' }}>Visit the Museum</h2>
       <p style={{ marginBottom: '20px' }}>
         Explore the physical collection that inspired{" "}
-        <strong style={{ textDecoration: "underline" }}>The Female Gaze of Paphos</strong>.
+        <strong style={{ textDecoration: "underline" }}>The Multifaceted Goddesses</strong>.
       </p>
 
       {/* The Map Container */}

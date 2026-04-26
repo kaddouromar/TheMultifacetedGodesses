@@ -1,4 +1,4 @@
-# The Female Gaze of Paphos
+# The Multifaceted Goddesses
 
 Minimal React website starter (Vite).
 
