@@ -1,10 +1,7 @@
 import { useState } from "react";
-import divine1 from "../assests/divine1.jpg";
-import divine2 from "../assests/divine2.jpg";
 
 export default function TheDivineTransition() {
-  const [hover1, setHover1] = useState(false);
-  const [hover2, setHover2] = useState(false);
+  const [active, setActive] = useState(1);
 
   const loremText = `Nea Paphos, House of Theseus
 Roman period (2nd/3rd c. AD)
@@ -32,44 +29,37 @@ We invite you to step beyond the silent surface of the marble. To look through t
 In this light, Aphrodite is unmoored from the voyeur's pedestal. She is no longer a passive vessel of beauty, frozen for the admiration of others; she is the storm and the shore.
 For the modern spirit, she stands as an ancient mirror of autonomy: A profound reminder that a woman's body is not a monument to be judged by the world, but a sanctuary of her own desire and a story written in her own voice.`;
 
+  const currentText = active === 1 ? aphroditeText : loremText;
+
   return (
     <section className="section">
       <h2>Aphrodite</h2>
-      <div className="divineTransitionGrid">
-        <div
-          className="card divineCard divineCardLeft"
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}
+      <div className="divineTabBar">
+        <button
+          className={`divineTab${active === 1 ? " divineTabActive" : ""}`}
+          onClick={() => setActive(1)}
         >
-          <div className="divineCardContent">
-            <img
-              src={divine2}
-              alt="Divine Transition 2"
-              className="divineImage"
+          1
+        </button>
+        <button
+          className={`divineTab${active === 2 ? " divineTabActive" : ""}`}
+          onClick={() => setActive(2)}
+        >
+          2
+        </button>
+      </div>
+      <div className="card divineCard">
+        <div className="divineCardContent">
+          <div className="divineModelCol">
+            <model-viewer
+              src={`/Aphrodite${active}.glb`}
+              auto-rotate
+              camera-controls
+              className="modelViewer"
             />
-            {hover2 && (
-              <div className="divineText">
-                <p>{aphroditeText}</p>
-              </div>
-            )}
           </div>
-        </div>
-        <div
-          className="card divineCard"
-          onMouseEnter={() => setHover1(true)}
-          onMouseLeave={() => setHover1(false)}
-        >
-          <div className="divineCardContent">
-            <img
-              src={divine1}
-              alt="Divine Transition 1"
-              className="divineImage"
-            />
-            {hover1 && (
-              <div className="divineText">
-                <p>{loremText}</p>
-              </div>
-            )}
+          <div className="divineText">
+            <p>{currentText}</p>
           </div>
         </div>
       </div>
