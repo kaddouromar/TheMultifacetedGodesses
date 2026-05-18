@@ -1,16 +1,18 @@
+import ObjectExhibit from "../../components/ObjectExhibit.jsx";
+import { getCollectionById } from "../../data/collections.js";
+
 export default function Artemis() {
+  const item = getCollectionById("artemis");
+
   return (
     <section className="section">
-      <h2>Artemis</h2>
-      <div className="card" style={{ padding: 0, overflow: "hidden" }}>
-        <model-viewer
-          src="/Artemis.glb"
-          auto-rotate
-          camera-controls
-          className="modelViewer"
-        />
-      </div>
+      <ObjectExhibit
+        title={item.title}
+        tags={item.tags}
+        modelSrc={item.modelSrc}
+      >
+        {item.label}
+      </ObjectExhibit>
     </section>
   );
 }
-

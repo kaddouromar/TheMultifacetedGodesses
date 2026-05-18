@@ -1,29 +1,34 @@
 import { Link } from "react-router-dom";
+import { COLLECTIONS } from "../data/collections.js";
 
 export default function Collection() {
   return (
     <section className="section">
-      <h2>Collections</h2>
-      <p>Choose a collection to explore.</p>
+      <h2>Discover the collection</h2>
+      <p className="sectionLead">
+        Rotate each 3D model and read the interpretation beside it. All objects
+        are drawn from the heritage of Cyprus and the Paphos region.
+      </p>
 
       <div className="collectionGrid">
-        <Link className="collectionCard" to="/collection/the-primal-origin">
-          <h3>Lady of Lempa</h3>
-          <div className="collectionImage collectionImage--primal" />
-        </Link>
-
-        <Link className="collectionCard" to="/collection/the-divine-transition">
-          <h3>Aphrodite</h3>
-          <div className="collectionImage collectionImage--divine" />
-        </Link>
-
-        <Link className="collectionCard" to="/collection/artemis">
-          <h3>Artemis</h3>
-          <div className="collectionImage collectionImage--artemis" />
-        </Link>
-
+        {COLLECTIONS.map((item) => (
+          <Link key={item.id} className="collectionCard" to={item.path}>
+            <h3>{item.title}</h3>
+            <div
+              className={`collectionImage ${item.imageClass}`}
+              style={{
+                backgroundImage: `url(${item.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+              role="img"
+              aria-label={item.title}
+            />
+            <p className="collectionTeaser">{item.teaser}</p>
+            <span className="highlightCardCta">Explore object →</span>
+          </Link>
+        ))}
       </div>
     </section>
   );
 }
-

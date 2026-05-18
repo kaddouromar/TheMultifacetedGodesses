@@ -1,4 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Visit from "./pages/Visit.jsx";
 import Collection from "./pages/Collection.jsx";
@@ -10,16 +11,32 @@ import Artemis from "./pages/collections/Artemis.jsx";
 export default function App() {
   return (
     <div className="page">
+      <a className="skipLink" href="#main-content">
+        Skip to main content
+      </a>
+
       <header className="topbar">
         <Link className="brand" to="/">
           The Multifaceted Goddesses
         </Link>
-        <nav className="nav">
-          <Link to="/visit">Visit</Link>
+        <nav className="nav" aria-label="Main">
           <div className="navDropdown">
-            <Link>
-              Collection
-            </Link>
+            <Link to="/visit">Visit</Link>
+            <div className="navMenu" role="menu" aria-label="Visit">
+              <Link to="/visit" role="menuitem">
+                Plan your visit
+              </Link>
+              <Link to="/visit#map" role="menuitem">
+                Museum map
+              </Link>
+              <Link to="/visit#hours" role="menuitem">
+                Opening hours
+              </Link>
+            </div>
+          </div>
+
+          <div className="navDropdown">
+            <Link to="/collection">Collection</Link>
             <div className="navMenu" role="menu" aria-label="Collection">
               <Link to="/collection/the-primal-origin" role="menuitem">
                 Lady of Lempa
@@ -32,11 +49,12 @@ export default function App() {
               </Link>
             </div>
           </div>
-          
+
+          <Link to="/about-us">About</Link>
         </nav>
       </header>
 
-      <main className="main">
+      <main id="main-content" className="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/visit" element={<Visit />} />
@@ -50,7 +68,8 @@ export default function App() {
           <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </main>
+
+      <Footer />
     </div>
   );
 }
-

@@ -1,9 +1,7 @@
 import { useState } from "react";
+import { getCollectionById } from "../../data/collections.js";
 
-export default function TheDivineTransition() {
-  const [active, setActive] = useState(1);
-
-  const loremText = `Nea Paphos, House of Theseus
+const armedText = `Nea Paphos, House of Theseus
 Roman period (2nd/3rd c. AD)
 
 The Warrior of Desire
@@ -15,7 +13,7 @@ Through the traditional lens, a woman with a weapon was often framed as a "War S
 The Female Gaze: Armed Autonomy
 Reclaimed through the Female Gaze, the sword is no longer a symbol of chaos, but of agency. She is not waiting to be protected; she is her own guardian. This statue represents the "Fierce Feminine": The realization that love, creation, and protection require strength. We invite you to see her not as a dangerous instigator, but as a complete and autonomous being who possesses both the grace to attract and the power to defend her own boundaries.`;
 
-  const aphroditeText = `Nea Pafos, found in the sea near the Lighthouse
+const risingText = `Nea Pafos, found in the sea near the Lighthouse
 Late Hellenistic period (2nd/1st c. BC)
 
 The Birth of an Icon
@@ -29,33 +27,51 @@ We invite you to step beyond the silent surface of the marble. To look through t
 In this light, Aphrodite is unmoored from the voyeur's pedestal. She is no longer a passive vessel of beauty, frozen for the admiration of others; she is the storm and the shore.
 For the modern spirit, she stands as an ancient mirror of autonomy: A profound reminder that a woman's body is not a monument to be judged by the world, but a sanctuary of her own desire and a story written in her own voice.`;
 
-  const currentText = active === 1 ? aphroditeText : loremText;
+const TEXT_BY_TAB = {
+  1: risingText,
+  2: armedText,
+};
+
+export default function TheDivineTransition() {
+  const item = getCollectionById("the-divine-transition");
+  const [active, setActive] = useState(1);
+  const activeTab = item.tabs.find((t) => t.id === active);
+
+  const currentText = TEXT_BY_TAB[active];
 
   return (
     <section className="section">
-      <h2>Aphrodite</h2>
-      <div className="divineTabBar">
-        <button
-          className={`divineTab${active === 1 ? " divineTabActive" : ""}`}
-          onClick={() => setActive(1)}
-        >
-          1
-        </button>
-        <button
-          className={`divineTab${active === 2 ? " divineTabActive" : ""}`}
-          onClick={() => setActive(2)}
-        >
-          2
-        </button>
+      <div className="objectHeader">
+        <h2>{item.title}</h2>
+        <ul className="objectTags" aria-label="Object details">
+          {item.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
       </div>
+
+      <div className="divineTabBar">
+        {item.tabs.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            className={`divineTab${active === tab.id ? " divineTabActive" : ""}`}
+            onClick={() => setActive(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
       <div className="card divineCard">
         <div className="divineCardContent">
           <div className="divineModelCol">
             <model-viewer
-              src={`/Aphrodite${active}.glb`}
+              src={activeTab.modelSrc}
               auto-rotate
               camera-controls
               className="modelViewer"
+              alt={`3D model: ${activeTab.label}`}
             />
           </div>
           <div className="divineText">
@@ -66,4 +82,3 @@ For the modern spirit, she stands as an ancient mirror of autonomy: A profound r
     </section>
   );
 }
-

@@ -1,16 +1,18 @@
+import ObjectExhibit from "../../components/ObjectExhibit.jsx";
+import { getCollectionById } from "../../data/collections.js";
+
 export default function ThePrimalOrigin() {
+  const item = getCollectionById("the-primal-origin");
+
   return (
     <section className="section">
-      <h2>Lady of Lempa</h2>
-      <div className="card" style={{ padding: 0, overflow: "hidden" }}>
-        <model-viewer
-          src="/LadyOfLemba.glb"
-          auto-rotate
-          camera-controls
-          className="modelViewer"
-        />
-      </div>
+      <ObjectExhibit
+        title={item.title}
+        tags={item.tags}
+        modelSrc={item.modelSrc}
+      >
+        {item.label}
+      </ObjectExhibit>
     </section>
   );
 }
-
