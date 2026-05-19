@@ -21,26 +21,21 @@ export default function ThePrimalOrigin() {
       </div>
 
       <section className="section">
-        <h2>Introduction</h2>
-        <p className="sectionBody">
-          Long before Cyprus was the island of Aphrodite, people here were already making
-          figures from stone. One of them has survived five thousand years. She was found at
-          a prehistoric settlement called Lempa, a few kilometres north of present-day
-          Paphos — in the same corner of the island that would later become the heart of
-          Aphrodite&apos;s world.
-        </p>
-        <p className="sectionBody">
-          Her name is the Lady of Lempa.
-        </p>
-      </section>
-
-      <section className="section">
-        <h2>3D Scan</h2>
         <ModelExhibit
           modelSrc={item.modelSrc}
+          splatSrc={item.splatSrc}
           alt={`3D model: ${item.title}`}
-          caption={CAPTION}
-        />
+        >
+          <p>
+            Long before Cyprus was the island of Aphrodite, people here were already making
+            figures from stone. One of them has survived five thousand years. She was found at
+            a prehistoric settlement called Lempa, a few kilometres north of present-day
+            Paphos — in the same corner of the island that would later become the heart of
+            Aphrodite&apos;s world.
+          </p>
+          <p>Her name is the Lady of Lempa.</p>
+          <p>{CAPTION}</p>
+        </ModelExhibit>
       </section>
 
       <section className="section">

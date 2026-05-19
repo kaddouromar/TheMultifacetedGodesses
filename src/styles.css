@@ -430,6 +430,30 @@ code {
   }
 }
 
+.scanSectionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.scanSectionHeader h2 {
+  margin: 0;
+}
+
+.scanViewToggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scanViewToggle .divineTab:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .divineTabBar {
   display: flex;
   gap: 8px;
@@ -509,6 +533,10 @@ code {
   font-size: 0.9rem;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.divineText p + p {
+  margin-top: 1em;
 }
 
 @media (min-width: 760px) {
@@ -613,6 +641,35 @@ code {
   height: 500px;
   background: transparent;
   border-radius: 12px;
+}
+
+.gaussianSplatViewer {
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.gaussianSplatViewerCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.gaussianSplatViewerMessage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 16px;
+  text-align: center;
+  color: var(--fg1);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.gaussianSplatViewerMessage--error {
+  color: #e8a8a8;
 }
 
 .successMessage {

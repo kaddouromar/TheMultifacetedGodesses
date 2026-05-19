@@ -20,6 +20,7 @@ export const COLLECTIONS = [
     image: ladyOfLempaImg,
     imageClass: "collectionImage--primal",
     modelSrc: "/LadyOfLemba.glb",
+    splatSrc: "/splats/LadyLempa.ply",
     label: `Lempa, Cyprus
 Chalcolithic period (c. 3000 BC)
 
@@ -46,11 +47,13 @@ Our photogrammetry model preserves every fracture and patina of the original so 
         id: 1,
         label: "Rising from the Sea",
         modelSrc: "/Aphrodite1.glb",
+        splatSrc: "/splats/AphroditeFreeStanding.ply",
       },
       {
         id: 2,
         label: "Armed Aphrodite",
         modelSrc: "/Aphrodite2.glb",
+        splatSrc: "/splats/Aphrodite_Sword.ply",
       },
     ],
   },
@@ -64,6 +67,7 @@ Our photogrammetry model preserves every fracture and patina of the original so 
     image: artemisImg,
     imageClass: "collectionImage--artemis",
     modelSrc: "/Artemis.glb",
+    splatSrc: "/splats/Artemis.ply",
     label: `Cyprus
 Hellenistic period (3rd–1st c. BC)
 

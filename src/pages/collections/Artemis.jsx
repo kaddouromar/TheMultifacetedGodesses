@@ -40,28 +40,25 @@ export default function Artemis() {
       </div>
 
       <section className="section">
-        <h2>Introduction</h2>
-        <p className="sectionBody">
-          Where Aphrodite embodied desire and love in all their complexity, Artemis was a
-          virgin goddess who rejected both for herself. She was the goddess of the hunt, the
-          wilderness and wild animals, but also the protector of young girls until marriage
-          and a guardian during childbirth. The goddess who rejected love for herself watched
-          over those who experienced its consequences most directly.
-        </p>
-        <p className="sectionBody">
-          On Cyprus, inscriptions and statuettes confirm that she was worshipped from the 5th
-          century BC onward. Her presence on the island was quieter than Aphrodite&apos;s, but
-          no less real.
-        </p>
-      </section>
-
-      <section className="section">
-        <h2>3D Scan</h2>
         <ModelExhibit
           modelSrc={item.modelSrc}
+          splatSrc={item.splatSrc}
           alt={`3D model: ${item.title}`}
-          caption={CAPTION}
-        />
+        >
+          <p>
+            Where Aphrodite embodied desire and love in all their complexity, Artemis was a
+            virgin goddess who rejected both for herself. She was the goddess of the hunt, the
+            wilderness and wild animals, but also the protector of young girls until marriage
+            and a guardian during childbirth. The goddess who rejected love for herself watched
+            over those who experienced its consequences most directly.
+          </p>
+          <p>
+            On Cyprus, inscriptions and statuettes confirm that she was worshipped from the 5th
+            century BC onward. Her presence on the island was quieter than Aphrodite&apos;s, but
+            no less real.
+          </p>
+          <p>{CAPTION}</p>
+        </ModelExhibit>
       </section>
 
       <section className="section">

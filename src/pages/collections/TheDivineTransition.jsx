@@ -1,5 +1,7 @@
 import { useState } from "react";
 import FlipCard from "../../components/FlipCard.jsx";
+import GaussianSplatViewer from "../../components/GaussianSplatViewer.jsx";
+import ScanSectionHeader from "../../components/ScanSectionHeader.jsx";
 import { getCollectionById } from "../../data/collections.js";
 import baetylImg from "../assests/aphrodite/baetyl.png";
 import ouraniaImg from "../assests/aphrodite/ourania.jpg";
@@ -35,7 +37,9 @@ const SYMBOLS = [
 export default function TheDivineTransition() {
   const item = getCollectionById("the-divine-transition");
   const [active, setActive] = useState(1);
+  const [viewMode, setViewMode] = useState("mesh");
   const activeTab = item.tabs.find((t) => t.id === active);
+  const showSplat = viewMode === "splat" && activeTab.splatSrc;
 
   return (
     <div className="collectionPage">
@@ -71,7 +75,12 @@ export default function TheDivineTransition() {
       </section>
 
       <section className="section">
-        <h2>3D Scans</h2>
+        <ScanSectionHeader
+          title="3D Scans"
+          viewMode={viewMode}
+          onViewModeChange={setViewMode}
+          splatAvailable={item.tabs.some((tab) => tab.splatSrc)}
+        />
         <div className="divineTabBar">
           {item.tabs.map((tab) => (
             <button
@@ -87,13 +96,21 @@ export default function TheDivineTransition() {
         <div className="card divineCard">
           <div className="divineCardContent">
             <div className="divineModelCol">
-              <model-viewer
-                src={activeTab.modelSrc}
-                auto-rotate
-                camera-controls
-                className="modelViewer"
-                alt={`3D model: ${activeTab.label}`}
-              />
+              {showSplat ? (
+                <GaussianSplatViewer
+                  key={activeTab.splatSrc}
+                  src={activeTab.splatSrc}
+                  className="modelViewer gaussianSplatViewer"
+                />
+              ) : (
+                <model-viewer
+                  src={activeTab.modelSrc}
+                  auto-rotate
+                  camera-controls
+                  className="modelViewer"
+                  alt={`3D model: ${activeTab.label}`}
+                />
+              )}
             </div>
             <div className="divineText">
               <p>{CAPTIONS[active]}</p>
