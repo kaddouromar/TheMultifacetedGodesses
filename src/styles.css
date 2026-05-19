@@ -945,3 +945,188 @@ code {
   }
 }
 
+.collectionPage {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.collectionPage > .objectHeader {
+  margin: 0;
+  padding: 0 2px;
+}
+
+.collectionPage > .section {
+  margin-top: 0;
+}
+
+.sectionBody {
+  margin: 0 0 14px;
+  color: var(--fg1);
+  line-height: 1.6;
+  max-width: 72ch;
+}
+
+.sectionBody:last-child {
+  margin-bottom: 0;
+}
+
+.videoEmbed {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 18px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.videoEmbed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.exhibitFigure {
+  margin: 18px 0;
+  max-width: 520px;
+}
+
+.exhibitFigure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--stroke);
+  background: #05080c;
+}
+
+.exhibitFigure figcaption {
+  margin-top: 10px;
+  color: var(--fg2);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.flipCardRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 20px;
+  perspective: 1400px;
+}
+
+@media (min-width: 700px) {
+  .flipCardRow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.flipCard {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  width: 100%;
+  min-height: 280px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  border-radius: 18px;
+  outline: none;
+}
+
+.flipCard:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.flipCard > .flipCardInner {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 0.55s ease;
+  -webkit-transform-style: preserve-3d;
+}
+
+.flipCardFlipped .flipCardInner {
+  transform: rotateY(180deg);
+}
+
+.flipCardFace {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(202, 184, 155, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.flipCardFront {
+  background: #e8e2d6;
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.flipCardFront img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100% - 36px);
+  max-height: calc(100% - 36px);
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-transform: translateZ(1px);
+  transform: translateZ(1px);
+}
+
+.flipCardBack {
+  background: #e8e2d6;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.flipCardBack p {
+  margin: 0;
+  padding: 16px;
+  color: #1e2a35;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.museumPhotoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@media (min-width: 700px) {
+  .museumPhotoGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.museumPhotoGrid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--stroke);
+}
+
