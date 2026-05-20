@@ -50,13 +50,13 @@ const SITES = [
   },
 ];
 
-const CENTER = [34.78, 32.48];
+const CENTER = [34.86, 32.48];
 
 export default function MapComponent() {
   return (
     <MapContainer
       center={CENTER}
-      zoom={10}
+      zoom={9}
       style={{ width: "100%", height: "100%" }}
       scrollWheelZoom={false}
     >

@@ -7,9 +7,13 @@ export default function Visit() {
       <section className="section visitIntro">
         <h2>Plan your visit</h2>
         <p className="sectionLead">
-          Explore the physical collection that inspired{" "}
-          <strong>The Multifaceted Goddesses</strong>. The originals and wider
-          galleries are on display at the {MUSEUM.name}.
+          The goddesses in this exhibition were worshipped across the whole island of Cyprus —
+          from coastal sanctuaries to civic centres to wild hilltops. This map brings together
+          the key sites connected to the objects and stories you have explored here.
+        </p>
+        <p className="sectionLead">
+          The originals and wider museum galleries are on display at the {MUSEUM.name},
+          but the landscape they came from stretches far beyond any single building.
         </p>
       </section>
 
@@ -28,10 +32,14 @@ export default function Visit() {
         className="section visitDetails"
         aria-labelledby="hours-heading"
       >
-        <h2 id="hours-heading">Opening hours & location</h2>
+        <h2 id="hours-heading">Archaeological Museum of Paphos</h2>
+        <p className="sectionBody">
+          The museum is the best starting point for a visit — it holds the objects that directly
+          inspired this exhibition, including the marble torso of Artemis from Nea Paphos.
+        </p>
         <div className="visitDetailsGrid">
           <div>
-            <h3 className="visitDetailLabel">Location</h3>
+            <h3 className="visitDetailLabel">Address</h3>
             <p>{MUSEUM.address}</p>
           </div>
           <div>
