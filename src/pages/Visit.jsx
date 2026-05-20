@@ -1,10 +1,7 @@
 import { MUSEUM } from "../data/collections.js";
+import MapComponent from "../MapComponents.jsx";
 
 export default function Visit() {
-  const museumMapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
-    MUSEUM.mapQuery
-  )}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
-
   return (
     <>
       <section className="section visitIntro">
@@ -17,18 +14,12 @@ export default function Visit() {
       </section>
 
       <section id="map" className="section visitMapSection" aria-labelledby="map-heading">
-        <h2 id="map-heading">Museum map</h2>
+        <h2 id="map-heading">Sites on Cyprus</h2>
+        <p className="sectionBody">
+          Click any pin to learn about the site. Scroll or pinch to zoom.
+        </p>
         <div className="visitMap">
-          <iframe
-            title="Paphos Museum Map"
-            width="100%"
-            height="100%"
-            src={museumMapUrl}
-            frameBorder="0"
-            scrolling="no"
-            marginHeight="0"
-            marginWidth="0"
-          />
+          <MapComponent />
         </div>
       </section>
 
