@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Visit from "./pages/Visit.jsx";
 import Collection from "./pages/Collection.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
+import TechComparison from "./pages/TechComparison.jsx";
 import ThePrimalOrigin from "./pages/collections/ThePrimalOrigin.jsx";
 import TheDivineTransition from "./pages/collections/TheDivineTransition.jsx";
 import Artemis from "./pages/collections/Artemis.jsx";
@@ -50,6 +51,7 @@ export default function App() {
             </div>
           </div>
 
+          <Link to="/tech-comparison">3D Methods</Link>
           <Link to="/about-us">About</Link>
         </nav>
       </header>
@@ -66,6 +68,7 @@ export default function App() {
           />
           <Route path="/collection/artemis" element={<Artemis />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/tech-comparison" element={<TechComparison />} />
         </Routes>
       </main>
 

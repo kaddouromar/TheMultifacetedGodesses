@@ -2,8 +2,8 @@ import FlipCard from "../../components/FlipCard.jsx";
 import ModelExhibit from "../../components/ModelExhibit.jsx";
 import { getCollectionById } from "../../data/collections.js";
 const epithetWild = "/flip-cards/artemis/wild.png";
-const epithetCoast = "/flip-cards/artemis/coast.jpeg";
-const epithetAgora = "/flip-cards/artemis/agora.jpg";
+const epithetCoast = "/flip-cards/artemis/coast.png";
+const epithetAgora = "/flip-cards/artemis/agora.png";
 
 const CAPTION = `Marble torso of Artemis, found at Nea Paphos-Maloutena. Roman period, 2nd century AD. The site at Maloutena lies close to where the earliest sanctuary of Artemis in Paphos is believed to have stood.`;
 
