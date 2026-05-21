@@ -4,7 +4,7 @@ A digital exhibition exploring goddess figures from ancient Cyprus — featuring
 
 ---
 
-## For the grader / first-time visitor
+## For first-time visitors
 
 You do **not** need to know how to code to run this. Just follow the steps below in order. If something goes wrong, the most common fixes are listed at the bottom.
 
